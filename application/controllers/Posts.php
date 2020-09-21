@@ -46,8 +46,10 @@
 
 			$data['categories'] = $this->post_model->get_categories();
 
-			$this->form_validation->set_rules('title', 'Title', 'required');
-			$this->form_validation->set_rules('body', 'Body', 'required');
+			$this->form_validation->set_rules('name', 'Name', 'required');
+			$this->form_validation->set_rules('age', 'Age', 'required');
+			$this->form_validation->set_rules('crime', 'Crime', 'required');
+			$this->form_validation->set_rules('police', 'Police', 'required');
 
 			if($this->form_validation->run() === FALSE){
 				$this->load->view('templates/header');
@@ -55,23 +57,23 @@
 				$this->load->view('templates/footer');
 			} else {
 				// Upload Image
-				$config['upload_path'] = './assets/images/posts';
-				$config['allowed_types'] = 'gif|jpg|png';
-				$config['max_size'] = '2048';
-				$config['max_width'] = '2000';
-				$config['max_height'] = '2000';
+				// $config['upload_path'] = './assets/images/posts';
+				// $config['allowed_types'] = 'gif|jpg|png';
+				// $config['max_size'] = '2048';
+				// $config['max_width'] = '2000';
+				// $config['max_height'] = '2000';
 
-				$this->load->library('upload', $config);
+				// $this->load->library('upload', $config);
 
-				if(!$this->upload->do_upload()){
-					$errors = array('error' => $this->upload->display_errors());
-					$post_image = 'noimage.jpg';
-				} else {
-					$data = array('upload_data' => $this->upload->data());
-					$post_image = $_FILES['userfile']['name'];
-				}
+				// if(!$this->upload->do_upload()){
+				// 	$errors = array('error' => $this->upload->display_errors());
+				// 	$post_image = 'noimage.jpg';
+				// } else {
+				// 	$data = array('upload_data' => $this->upload->data());
+				// 	$post_image = $_FILES['userfile']['name'];
+				// }
 
-				$this->post_model->create_post($post_image);
+				// $this->post_model->create_post($post_image);
 
 				// Set message
 				$this->session->set_flashdata('post_created', 'Your post has been created');

@@ -1,13 +1,13 @@
 <html>
 	<head>
-		<title>ciBlog</title>
+		<title>Criminal Investigation</title>
 		<link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
     <!-- <script src="http://cdn.ckeditor.com/4.5.11/standard/ckeditor.js"></script> -->
 	</head>
 	<body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a class="navbar-brand" href="<?php echo base_url(); ?>">ciBlog</a>
+      <a class="navbar-brand" href="<?php echo base_url(); ?>">Criminal Investigation</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
