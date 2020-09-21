@@ -14,7 +14,7 @@
 
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url(); ?>">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
@@ -24,7 +24,7 @@
             <a class="nav-link" href="<?php echo base_url(); ?>criminal">Criminals</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url(); ?>polices">Police</a>
+            <a class="nav-link" href="<?php echo base_url(); ?>police">Police</a>
           </li>
         </ul>
 

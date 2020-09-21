@@ -1,14 +1,28 @@
 <h2><?= $title ?></h2>
-<?php foreach($criminal as $c) : ?>
-	<h3><?php echo $c['name']; ?></h3>
-	<div class="row">
-		<div class="col-md-9">
-			<small class="post-date">Posted on: <?php echo $c['register_date']; ?> in <strong><?php echo $c['age']; ?></strong></small><br>
-		<?php echo word_limiter($c['crime'], 60); ?>
-		<br><br>
-		</div>
-	</div>
-<?php endforeach; ?>
+
+	<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+	  <th scope="col">Crime</th>
+	  <th scope="col">Date of addition</th>
+    </tr>
+  </thead>
+  <tbody>
+	<?php foreach($criminal as $c) : ?>
+    <tr>
+      <td><?php echo $c['name']; ?></td>
+      <td><?php echo $c['age']; ?></td>
+	  <td><?php echo $c['crime']; ?></td>
+	  <td><?php echo $c['register_date']; ?></td>
+	</tr>
+	<?php endforeach; ?>
+  </tbody>
+</table>
+
 <div class="pagination-links">
 		<?php echo $this->pagination->create_links(); ?>
 </div>
+
+

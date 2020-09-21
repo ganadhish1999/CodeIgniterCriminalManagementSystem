@@ -7,6 +7,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // $route['posts/(:any)'] = 'posts/view/$1';
 // $route['posts'] = 'posts/index';
 
+$route['police/index'] = 'police/index';
+$route['police'] = 'police/index';
+
 $route['criminal/index'] = 'criminal/index';
 $route['criminal/create'] = 'criminal/create';
 $route['criminal/update'] = 'criminal/update';

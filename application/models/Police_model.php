@@ -1,5 +1,24 @@
 <?php
 	class Police_model extends CI_Model{
+
+		public function __construct(){
+			$this->load->database();
+		}
+
+		public function get_police($slug = FALSE, $limit = FALSE, $offset = FALSE){
+			if($limit){
+				$this->db->limit($limit, $offset);
+			}
+			if($slug === FALSE){
+				$this->db->order_by('police.id', 'DESC');
+				$query = $this->db->get('police');
+				return $query->result_array();
+			}
+
+			$query = $this->db->get_where('police', array('slug' => $slug));
+			return $query->row_array();
+		}
+
 		public function register($enc_password){
 			// User data array
 

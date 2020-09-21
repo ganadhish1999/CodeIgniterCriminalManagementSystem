@@ -1,5 +1,25 @@
 <?php
 	class Police extends CI_Controller{
+
+		public function index($offset = 0){	
+			// Pagination Config	
+			$config['base_url'] = base_url() . 'police/';
+			$config['total_rows'] = $this->db->count_all('police');
+			$config['attributes'] = array('class' => 'pagination-link');
+
+			// Init Pagination
+			// $this->pagination->initialize($config);
+
+			$data['title'] = 'Police';
+
+			$data['police'] = $this->police_model->get_police(FALSE, $offset);
+
+			$this->load->view('templates/header');
+			$this->load->view('police/index', $data);
+			$this->load->view('templates/footer');
+		}
+
+
 		// Register user
 
 		public function register(){
@@ -65,7 +85,7 @@
 					// Set message
 					$this->session->set_flashdata('user_loggedin', 'You are now logged in');
 
-					redirect('criminal');
+					redirect('home');
 				} else {
 					// Set message
 					$this->session->set_flashdata('login_failed', 'Login is invalid');

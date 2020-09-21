@@ -2,10 +2,8 @@
 	class Criminal extends CI_Controller{
 		public function index($offset = 0){	
 			// Pagination Config	
-			$config['base_url'] = base_url() . 'criminal/create/';
+			$config['base_url'] = base_url() . 'criminal/';
 			$config['total_rows'] = $this->db->count_all('criminal');
-			$config['per_page'] = 3;
-			$config['uri_segment'] = 3;
 			$config['attributes'] = array('class' => 'pagination-link');
 
 			// Init Pagination
@@ -13,7 +11,7 @@
 
 			$data['title'] = 'Criminals';
 
-			$data['criminal'] = $this->criminal_model->get_criminal(FALSE, $config['per_page'], $offset);
+			$data['criminal'] = $this->criminal_model->get_criminal(FALSE, $offset);
 
 			$this->load->view('templates/header');
 			$this->load->view('criminal/index', $data);
