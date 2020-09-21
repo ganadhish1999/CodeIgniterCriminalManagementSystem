@@ -16,7 +16,7 @@
 			// $data['posts'] = $this->post_model->get_posts(FALSE, $config['per_page'], $offset);
 
 			$this->load->view('templates/header');
-			$this->load->view('criminal/cretae');
+			$this->load->view('criminal/create');
 			$this->load->view('templates/footer');
 		}
 
@@ -42,7 +42,7 @@
 				redirect('users/login');
 			}
 
-			// $data['title'] = 'Create Post';
+			$data['title'] = 'Add Criminal';
 
 			// $data['categories'] = $this->post_model->get_categories();
 
@@ -52,7 +52,7 @@
 
 			if($this->form_validation->run() === FALSE){
 				$this->load->view('templates/header');
-				$this->load->view('criminal/create');
+				$this->load->view('criminal/create', $data);
 				$this->load->view('templates/footer');
 			} else {
 				// Upload Image
@@ -75,7 +75,7 @@
 				$this->criminal_model->create_criminal();
 
 				// Set message
-				$this->session->set_flashdata('post_created', 'Your criminal has been added');
+				$this->session->set_flashdata('criminal_created', 'Your criminal has been added');
 
 				redirect('criminal');
 			}
