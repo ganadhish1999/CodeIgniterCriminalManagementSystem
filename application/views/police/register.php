@@ -1,17 +1,13 @@
 <?php echo validation_errors(); ?>
 
 <?php echo form_open('police/register'); ?>
-	<div class="row">
+	<div class="row justify-content-center">
 		<div class="col-md-4 col-md-offset-4">
 			<h1 class="text-center"><?= $title; ?></h1>
 			<div class="form-group">
 				<label>Name</label>
 				<input type="text" class="form-control" name="name" placeholder="Name">
 			</div>
-			<!-- <div class="form-group">
-				<label>Zipcode</label>
-				<input type="text" class="form-control" name="zipcode" placeholder="Zipcode">
-			</div> -->
 			<div class="form-group">
 				<label>Age</label>
 				<input type="number"  min="18" class="form-control" name="age" placeholder="Age">
@@ -32,10 +28,6 @@
 				<label>Email</label>
 				<input type="email" class="form-control" name="email" placeholder="Email">
 			</div>
-			<!-- <div class="form-group">
-				<label>Username</label>
-				<input type="text" class="form-control" name="username" placeholder="Username">
-			</div> -->
 			<div class="form-group">
 				<label>Password</label>
 				<input type="password" class="form-control" name="password" placeholder="Password">

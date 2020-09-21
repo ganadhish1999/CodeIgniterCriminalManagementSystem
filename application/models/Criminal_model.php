@@ -19,56 +19,22 @@
 		}
 
 		public function create_criminal(){
-			// $slug = url_title($this->input->post('title'));
 
 			$data = array(
 				'name' => $this->input->post('name'),
-				// 'slug' => $slug,
 				'age' => $this->input->post('age'),
 				'crime' => $this->input->post('crime'),
-				'police_id' => $this->session->userdata('id'),
-				// 'post_image' => $post_image
+				'police_id' => $this->session->userdata('user_id'),
 			);
 
 			return $this->db->insert('criminal', $data);
 		}
 
-		// public function delete_post($id){
-		// 	$image_file_name = $this->db->select('post_image')->get_where('posts', array('id' => $id))->row()->post_image;
-		// 	$cwd = getcwd(); // save the current working directory
-		// 	$image_file_path = $cwd."\\assets\\images\\posts\\";
-		// 	chdir($image_file_path);
-		// 	unlink($image_file_name);
-		// 	chdir($cwd); // Restore the previous working directory
-		// 	$this->db->where('id', $id);
-		// 	$this->db->delete('posts');
-		// 	return true;
-		// }
+		public function delete_criminal($id){
+			$this->db->where('id', $id);
+			$this->db->delete('criminal');
+			
+			return true;
+		}
 
-		// public function update_post(){
-		// 	$slug = url_title($this->input->post('title'));
-
-		// 	$data = array(
-		// 		'title' => $this->input->post('title'),
-		// 		'slug' => $slug,
-		// 		'body' => $this->input->post('body'),
-		// 		'category_id' => $this->input->post('category_id')
-		// 	);
-
-		// 	$this->db->where('id', $this->input->post('id'));
-		// 	return $this->db->update('posts', $data);
-		// }
-
-		// public function get_categories(){
-		// 	$this->db->order_by('name');
-		// 	$query = $this->db->get('categories');
-		// 	return $query->result_array();
-		// }
-
-		// public function get_posts_by_category($category_id){
-		// 	$this->db->order_by('posts.id', 'DESC');
-		// 	$this->db->join('categories', 'categories.id = posts.category_id');
-		// 		$query = $this->db->get_where('posts', array('category_id' => $category_id));
-		// 	return $query->result_array();
-		// }
 	}

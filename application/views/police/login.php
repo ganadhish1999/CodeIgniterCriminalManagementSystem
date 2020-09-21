@@ -1,5 +1,5 @@
 <?php echo form_open('police/login'); ?>
-	<div class="row">
+	<div class="row justify-content-center">
 		<div class="col-md-4 col-md-offset-4">
 			<h1 class="text-center"><?php echo $title; ?></h1>
 			<div class="form-group">

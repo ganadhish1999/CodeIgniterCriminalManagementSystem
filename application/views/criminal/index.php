@@ -15,14 +15,15 @@
       <td><?php echo $c['name']; ?></td>
       <td><?php echo $c['age']; ?></td>
 	  <td><?php echo $c['crime']; ?></td>
-	  <td><?php echo $c['register_date']; ?></td>
+    <td><?php echo $c['register_date']; ?></td>
+    <td>
+      <?php if($this->session->userdata('user_id') == $c['police_id']): ?>
+        <?php echo form_open('/criminal/delete/'.$c['id']); ?>
+          <input type="submit" value="Delete" class="btn btn-danger">
+        </form>
+      <?php endif; ?>
+    </td>
 	</tr>
 	<?php endforeach; ?>
   </tbody>
 </table>
-
-<div class="pagination-links">
-		<?php echo $this->pagination->create_links(); ?>
-</div>
-
-
