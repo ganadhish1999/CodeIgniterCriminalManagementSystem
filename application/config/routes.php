@@ -1,11 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$route['posts/index'] = 'posts/index';
-$route['posts/create'] = 'posts/create';
-$route['posts/update'] = 'posts/update';
-$route['posts/(:any)'] = 'posts/view/$1';
-$route['posts'] = 'posts/index';
+// $route['posts/index'] = 'posts/index';
+// $route['posts/create'] = 'posts/create';
+// $route['posts/update'] = 'posts/update';
+// $route['posts/(:any)'] = 'posts/view/$1';
+// $route['posts'] = 'posts/index';
+
+$route['criminal/index'] = 'criminal/index';
+$route['criminal/create'] = 'criminal/create';
+$route['criminal/update'] = 'criminal/update';
+$route['criminal/(:any)'] = 'criminal/view/$1';
+$route['criminal'] = 'criminal/index';
 
 $route['default_controller'] = 'pages/view';
 
