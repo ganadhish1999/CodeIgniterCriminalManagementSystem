@@ -11,12 +11,12 @@
 			// Init Pagination
 			// $this->pagination->initialize($config);
 
-			// $data['title'] = 'Latest Posts';
+			$data['title'] = 'Criminals';
 
-			// $data['posts'] = $this->post_model->get_posts(FALSE, $config['per_page'], $offset);
+			$data['criminal'] = $this->criminal_model->get_criminal(FALSE, $config['per_page'], $offset);
 
 			$this->load->view('templates/header');
-			$this->load->view('criminal/create');
+			$this->load->view('criminal/index', $data);
 			$this->load->view('templates/footer');
 		}
 
@@ -77,7 +77,7 @@
 				// Set message
 				$this->session->set_flashdata('criminal_created', 'Your criminal has been added');
 
-				redirect('criminal');
+				redirect('home');
 			}
 		}
 

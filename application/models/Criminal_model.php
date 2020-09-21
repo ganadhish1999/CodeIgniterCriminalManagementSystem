@@ -4,29 +4,28 @@
 			$this->load->database();
 		}
 
-		// public function get_posts($slug = FALSE, $limit = FALSE, $offset = FALSE){
-		// 	if($limit){
-		// 		$this->db->limit($limit, $offset);
-		// 	}
-		// 	if($slug === FALSE){
-		// 		$this->db->order_by('posts.id', 'DESC');
-		// 		$this->db->join('categories', 'categories.id = posts.category_id');
-		// 		$query = $this->db->get('posts');
-		// 		return $query->result_array();
-		// 	}
+		public function get_criminal($slug = FALSE, $limit = FALSE, $offset = FALSE){
+			if($limit){
+				$this->db->limit($limit, $offset);
+			}
+			if($slug === FALSE){
+				$this->db->order_by('criminal.id', 'DESC');
+				$query = $this->db->get('criminal');
+				return $query->result_array();
+			}
 
-		// 	$query = $this->db->get_where('posts', array('slug' => $slug));
-		// 	return $query->row_array();
-		// }
+			$query = $this->db->get_where('criminal', array('slug' => $slug));
+			return $query->row_array();
+		}
 
 		public function create_criminal(){
 			// $slug = url_title($this->input->post('title'));
 
 			$data = array(
-				'name' => $this->input->criminal('name'),
+				'name' => $this->input->post('name'),
 				// 'slug' => $slug,
-				'age' => $this->input->criminal('age'),
-				'crime' => $this->input->criminal('crime'),
+				'age' => $this->input->post('age'),
+				'crime' => $this->input->post('crime'),
 				'police_id' => $this->session->userdata('id'),
 				// 'post_image' => $post_image
 			);
