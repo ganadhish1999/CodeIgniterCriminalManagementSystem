@@ -1,40 +1,40 @@
 <?php
-	class Posts extends CI_Controller{
+	class Criminal extends CI_Controller{
 		public function index($offset = 0){	
 			// Pagination Config	
-			$config['base_url'] = base_url() . 'posts/index/';
-			$config['total_rows'] = $this->db->count_all('posts');
+			$config['base_url'] = base_url() . 'criminal/create/';
+			$config['total_rows'] = $this->db->count_all('criminal');
 			$config['per_page'] = 3;
 			$config['uri_segment'] = 3;
 			$config['attributes'] = array('class' => 'pagination-link');
 
 			// Init Pagination
-			$this->pagination->initialize($config);
+			// $this->pagination->initialize($config);
 
-			$data['title'] = 'Latest Posts';
+			// $data['title'] = 'Latest Posts';
 
-			$data['posts'] = $this->post_model->get_posts(FALSE, $config['per_page'], $offset);
+			// $data['posts'] = $this->post_model->get_posts(FALSE, $config['per_page'], $offset);
 
 			$this->load->view('templates/header');
-			$this->load->view('posts/index', $data);
+			$this->load->view('criminal/cretae');
 			$this->load->view('templates/footer');
 		}
 
-		public function view($slug = NULL){
-			$data['post'] = $this->post_model->get_posts($slug);
-			$post_id = $data['post']['id'];
-			$data['comments'] = $this->comment_model->get_comments($post_id);
+		// public function view($slug = NULL){
+		// 	$data['post'] = $this->post_model->get_posts($slug);
+		// 	$post_id = $data['post']['id'];
+		// 	$data['comments'] = $this->comment_model->get_comments($post_id);
 
-			if(empty($data['post'])){
-				show_404();
-			}
+		// 	if(empty($data['post'])){
+		// 		show_404();
+		// 	}
 
-			$data['title'] = $data['post']['title'];
+		// 	$data['title'] = $data['post']['title'];
 
-			$this->load->view('templates/header');
-			$this->load->view('posts/view', $data);
-			$this->load->view('templates/footer');
-		}
+		// 	$this->load->view('templates/header');
+		// 	$this->load->view('posts/view', $data);
+		// 	$this->load->view('templates/footer');
+		// }
 
 		public function create(){
 			// Check login
@@ -42,18 +42,17 @@
 				redirect('users/login');
 			}
 
-			$data['title'] = 'Create Post';
+			// $data['title'] = 'Create Post';
 
-			$data['categories'] = $this->post_model->get_categories();
+			// $data['categories'] = $this->post_model->get_categories();
 
 			$this->form_validation->set_rules('name', 'Name', 'required');
 			$this->form_validation->set_rules('age', 'Age', 'required');
 			$this->form_validation->set_rules('crime', 'Crime', 'required');
-			$this->form_validation->set_rules('police', 'Police', 'required');
 
 			if($this->form_validation->run() === FALSE){
 				$this->load->view('templates/header');
-				$this->load->view('posts/create', $data);
+				$this->load->view('criminal/create');
 				$this->load->view('templates/footer');
 			} else {
 				// Upload Image
@@ -73,28 +72,28 @@
 				// 	$post_image = $_FILES['userfile']['name'];
 				// }
 
-				// $this->post_model->create_post($post_image);
+				$this->criminal_model->create_criminal();
 
 				// Set message
-				$this->session->set_flashdata('post_created', 'Your post has been created');
+				$this->session->set_flashdata('post_created', 'Your criminal has been added');
 
-				redirect('posts');
+				redirect('criminal');
 			}
 		}
 
-		public function delete($id){
-			// Check login
-			if(!$this->session->userdata('logged_in')){
-				redirect('users/login');
-			}
+		// public function delete($id){
+		// 	// Check login
+		// 	if(!$this->session->userdata('logged_in')){
+		// 		redirect('users/login');
+		// 	}
 
-			$this->post_model->delete_post($id);
+		// 	$this->post_model->delete_post($id);
 
-			// Set message
-			$this->session->set_flashdata('post_deleted', 'Your post has been deleted');
+		// 	// Set message
+		// 	$this->session->set_flashdata('post_deleted', 'Your post has been deleted');
 
-			redirect('posts');
-		}
+		// 	redirect('posts');
+		// }
 
 		// public function edit($slug){
 		// 	// Check login

@@ -2,7 +2,7 @@
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open_multipart('posts/create'); ?>
+<?php echo form_open_multipart('criminal/create'); ?>
   <!-- <div class="form-group">
     <label>Title</label>
     <input type="text" class="form-control" name="title" placeholder="Add Title">
@@ -38,10 +38,6 @@
 			<div class="form-group">
 				<label>Age</label>
 				<input type="number" class="form-control" name="age" placeholder="Age">
-			</div>
-      <div class="form-group">
-				<label>Police</label>
-				<input type="text" class="form-control" name="police" placeholder="Name">
 			</div>
 			<button type="submit" class="btn btn-primary btn-block">Submit</button>
 		</div>
