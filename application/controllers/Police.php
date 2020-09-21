@@ -17,7 +17,7 @@
 
 			if($this->form_validation->run() === FALSE){
 				$this->load->view('templates/header');
-				$this->load->view('users/register', $data);
+				$this->load->view('police/register', $data);
 				$this->load->view('templates/footer');
 			} else {
 				// Encrypt password
@@ -28,7 +28,7 @@
 				// Set message
 				$this->session->set_flashdata('user_registered', 'You are now registered and can log in');
 
-				redirect('posts');
+				redirect('police/login');
 			}
 		}
 
@@ -36,27 +36,27 @@
 		public function login(){
 			$data['title'] = 'Sign In';
 
-			$this->form_validation->set_rules('username', 'Username', 'required');
+			$this->form_validation->set_rules('name', 'Name', 'required');
 			$this->form_validation->set_rules('password', 'Password', 'required');
 
 			if($this->form_validation->run() === FALSE){
 				$this->load->view('templates/header');
-				$this->load->view('users/login', $data);
+				$this->load->view('police/login', $data);
 				$this->load->view('templates/footer');
 			} else {
 				
 				// Get username
-				$username = $this->input->post('username');
+				$name = $this->input->post('name');
 				// Get and encrypt the password
 				$password = md5($this->input->post('password'));
 
 				// Login user
-				$user_id = $this->police_model->login($username, $password);
+				$user_id = $this->police_model->login($name, $password);
 				if($user_id){
 					// Create session
 					$user_data = array(
 						'user_id' => $user_id,
-						'username' => $username,
+						'name' => $name,
 						'logged_in' => true
 					);
 
@@ -65,12 +65,12 @@
 					// Set message
 					$this->session->set_flashdata('user_loggedin', 'You are now logged in');
 
-					redirect('posts');
+					redirect('criminal');
 				} else {
 					// Set message
 					$this->session->set_flashdata('login_failed', 'Login is invalid');
 
-					redirect('users/login');
+					redirect('police/login');
 				}		
 			}
 		}
@@ -80,18 +80,18 @@
 			// Unset user data
 			$this->session->unset_userdata('logged_in');
 			$this->session->unset_userdata('user_id');
-			$this->session->unset_userdata('username');
+			$this->session->unset_userdata('name');
 
 			// Set message
 			$this->session->set_flashdata('user_loggedout', 'You are now logged out');
 
-			redirect('users/login');
+			redirect('police/login');
 		}
 
 		// Check if username exists
-		public function check_username_exists($username){
-			$this->form_validation->set_message('check_username_exists', 'That username is taken. Please choose a different one');
-			if($this->police_model->check_username_exists($username)){
+		public function check_name_exists($name){
+			$this->form_validation->set_message('check_name_exists', 'That name is taken. Please choose a different one');
+			if($this->police_model->check_name_exists($name)){
 				return true;
 			} else {
 				return false;

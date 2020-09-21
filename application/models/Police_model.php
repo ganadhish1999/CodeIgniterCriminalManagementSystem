@@ -18,7 +18,7 @@
 		}
 
 		// Log user in
-		public function login($username, $password){
+		public function login($name, $password){
 			// Validate
 			$this->db->where('name', $name);
 			$this->db->where('password', $password);

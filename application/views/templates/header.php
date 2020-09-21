@@ -30,13 +30,13 @@
 
         <ul class="navbar-nav my-2 my-lg-0">
           <?php if(!$this->session->userdata('logged_in')) : ?>
-            <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>users/login">Login</a></li>
-            <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>users/register">Register</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>police/login">Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>police/register">Register</a></li>
           <?php endif; ?>
           <?php if($this->session->userdata('logged_in')) : ?>
             <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>criminal/create">Add Criminal</a></li>
             <!-- <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>categories/create">Create Category</a></li> -->
-            <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>users/logout">Logout</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>police/logout">Logout</a></li>
           <?php endif; ?>
         </ul>
       </div>
