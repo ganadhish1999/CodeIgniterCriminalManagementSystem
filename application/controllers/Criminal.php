@@ -50,4 +50,16 @@
 
 			redirect('criminal/index');
 		}
+
+
+		public function search() {
+			$criminal_name = $this->input->post("criminal_name");
+
+			$data['title'] = 'Criminals';
+			$data['criminal'] = $this->criminal_model->search_criminal($criminal_name);
+
+			$this->load->view('templates/header');
+			$this->load->view('criminal/search', $data);
+			$this->load->view('templates/footer');
+		}
 	}

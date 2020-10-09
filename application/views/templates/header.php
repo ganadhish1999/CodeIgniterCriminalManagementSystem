@@ -27,7 +27,13 @@
             <a class="nav-link" href="<?php echo base_url(); ?>police">Police</a>
           </li>
         </ul>
-
+        <ul>
+          <form method="post" action="<?php echo base_url();?>criminal/search" name="criminal_name">
+            <label>Enter Criminal Name</label>
+            <input type="text" name="criminal_name">   
+            <input type="submit" value="search"/>
+          </form>
+        </ul>
         <ul class="navbar-nav my-2 my-lg-0">
           <?php if(!$this->session->userdata('logged_in')) : ?>
             <li class="nav-item"><a class="nav-link" href="<?php echo base_url(); ?>police/login">Login</a></li>

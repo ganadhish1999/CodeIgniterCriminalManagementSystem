@@ -18,6 +18,11 @@
 			return $query->row_array();
 		}
 
+		public function search_criminal($name) {
+			$query = $this->db->get_where('criminal', array('name' => $name));
+			return $query->row_array();
+		}
+
 		public function create_criminal(){
 
 			$data = array(
