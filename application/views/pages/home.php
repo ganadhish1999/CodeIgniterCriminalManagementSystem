@@ -29,14 +29,6 @@
     </div>
     </div>
 
-    <div class="card border-primary mb-3" style="max-width: 20rem;">
-    <div class="card-header">Searching made easy</div>
-    <div class="card-body">
-        <h4 class="card-title">Search Record</h4>
-        <p class="card-text">Query among data to get police, criminal</p>
-    </div>
-    </div>
-
 </div>
 
 <div class="jumbotron">
