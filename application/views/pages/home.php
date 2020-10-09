@@ -1,5 +1,7 @@
 <!-- <h2><?= $title ?></h2> -->
-
+<div class="mb-3 font-size-500px large">
+  <marquee behavior="scroll" direction="right" mb-20><h4>To protect Good and to destroy Evil</h4></marquee>
+</div>  
 <figure class="figure">
   <img src="<?php echo site_url(); ?>assets/images/home/badge.jpg" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
   <figcaption class="figure-caption"></figcaption>
