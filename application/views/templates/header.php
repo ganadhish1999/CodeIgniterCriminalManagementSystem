@@ -28,10 +28,10 @@
           </li>
         </ul>
         <ul>
-          <form method="post" action="<?php echo base_url();?>criminal/search" name="criminal_name">
-            <label>Enter Criminal Name</label>
-            <input type="text" name="criminal_name">   
-            <input type="submit" value="search"/>
+          <form class="form-inline my-2 my-lg-0" method="post" action="<?php echo base_url();?>criminal/search" name="criminal_name">
+            <input class="form-control mr-sm-2" type="text" name="criminal_name" placeholder="Search Criminal Name">   
+            <!-- <input  class="form-control mr-sm-2" type="submit" value="search"/> -->
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
           </form>
         </ul>
         <ul class="navbar-nav my-2 my-lg-0">
